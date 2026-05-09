@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="アカスマ 5.10 SAT 21:00 KICKOFF。石毛、渡辺、八木、多比良による身内スマブラ大会のプログラムLP。" />
+  <title>アカスマ | PRIVATE GUIDE</title>
+  <style>
+    :root {
+      --lp-width: 430px;
+      --red: #e1122c;
+      --red-soft: rgba(225, 18, 44, .62);
+      --bg: #050506;
+      --panel: rgba(9, 9, 12, .86);
+      --white: #f5f5f6;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-width: 0;
+      background: #111;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 0;
+      overflow-x: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(180, 0, 24, .16), transparent 36rem),
+        linear-gradient(180deg, #121215 0%, #050506 45%, #121215 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+    }
+
+    a { color: inherit; }
+
+    .page-shell {
+      width: min(100vw, var(--lp-width));
+      max-width: var(--lp-width);
+      margin: 0 auto;
+      background: var(--bg);
+      position: relative;
+      box-shadow: 0 0 32px rgba(0, 0, 0, .62);
+    }
+
+    .slice {
+      position: relative;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+      background: #050506;
+      overflow: hidden;
+    }
+
+    .slice img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      vertical-align: bottom;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .hotspot {
+      position: absolute;
+      display: block;
+      border: 0;
+      border-radius: 10px;
+      padding: 0;
+      margin: 0;
+      background: rgba(255, 255, 255, 0);
+      color: transparent;
+      cursor: pointer;
+      line-height: 1;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(225, 18, 44, .25);
+    }
+
+    .hotspot:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, .92);
+      outline-offset: 2px;
+      background: rgba(225, 18, 44, .10);
+      box-shadow: 0 0 0 4px rgba(225, 18, 44, .30);
+    }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    .fixed-nav {
+      position: fixed;
+      left: 50%;
+      bottom: max(10px, env(safe-area-inset-bottom));
+      z-index: 30;
+      width: min(calc(100vw - 20px), 410px);
+      transform: translateX(-50%);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.2fr;
+      gap: 6px;
+      padding: 6px;
+      border: 1px solid rgba(225, 18, 44, .28);
+      border-radius: 999px;
+      background: rgba(4, 4, 6, .68);
+      box-shadow: 0 12px 38px rgba(0, 0, 0, .34), inset 0 0 12px rgba(225, 18, 44, .05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .fixed-nav button {
+      min-height: 36px;
+      border: 1px solid rgba(225, 18, 44, .34);
+      border-radius: 999px;
+      background: rgba(10, 10, 12, .58);
+      color: rgba(255, 255, 255, .88);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      cursor: pointer;
+    }
+
+    .fixed-nav button:last-child {
+      background: rgba(225, 18, 44, .18);
+      color: #fff;
+    }
+
+    .fixed-nav button:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+
+    .modal-root[hidden] { display: none; }
+
+    .modal-root {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, .72);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+
+    .modal-dialog {
+      position: relative;
+      width: min(100%, 390px);
+      border: 1px solid rgba(225, 18, 44, .55);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(225, 18, 44, .12), transparent 32%),
+        rgba(8, 8, 11, .96);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, .06), 0 30px 80px rgba(0, 0, 0, .55);
+      color: #fff;
+      line-height: 1.7;
+      overflow: hidden;
+    }
+
+    .modal-dialog::before {
+      content: "";
+      display: block;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+    }
+
+    .modal-inner { padding: 22px 20px 18px; }
+
+    .modal-title {
+      margin: 0 40px 8px 0;
+      font-size: 18px;
+      letter-spacing: .08em;
+    }
+
+    .modal-body {
+      margin: 0;
+      color: rgba(255, 255, 255, .82);
+      font-size: 14px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .06);
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .modal-actions button {
+      min-height: 36px;
+      border: 1px solid rgba(225, 18, 44, .5);
+      border-radius: 999px;
+      padding: 0 14px;
+      background: rgba(225, 18, 44, .12);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell" id="top">
+    <h1 class="sr-only">アカスマ PRIVATE GUIDE</h1>
+    <p class="sr-only">2026年5月10日土曜日、21時キックオフ。参加者は石毛、渡辺、八木、多比良。</p>
+
+    <section class="slice" id="hero" aria-labelledby="hero-title">
+      <h2 class="sr-only" id="hero-title">アカスマ概要</h2>
+      <img src="assets/01-hero.png" alt="アカスマ。5.10 SAT、21:00 KICKOFF。参加者は石毛、渡辺、八木、多比良。" loading="eager" decoding="async" />
+      <button class="hotspot" style="left:5%; top:69%; width:29%; height:8%;" data-target="#program" aria-label="PROGRAM 進行とルールへ移動"></button>
+      <button class="hotspot" style="left:35.5%; top:69%; width:29%; height:8%;" data-target="#players" aria-label="PLAYERS 4人の紹介へ移動"></button>
+      <button class="hotspot" style="left:66%; top:69%; width:29%; height:8%;" data-target="#record" aria-label="RESULTS 記録と記憶へ移動"></button>
+      <button class="hotspot" style="left:5%; top:82%; width:90%; height:14%;" data-target="#program" aria-label="次のセクションへ進む"></button>
+    </section>
+
+    <section class="slice" id="program" aria-labelledby="program-title">
+      <h2 class="sr-only" id="program-title">PROGRAM 進行とルール</h2>
+      <p class="sr-only">バトルロイヤルは3本先取で優勝決定。リーグ戦は総当たり。ストック差で得失点を記録し、勝利数が並んだ場合は得失点で順位決め。チームファイナルはTEAM WONDERの石毛・渡辺対TEAM REDSの八木・多比良。</p>
+      <img src="assets/02-program.png" alt="PROGRAM 進行とルール。BATTLE ROYAL、LEAGUE、TEAM FINALの概要。" loading="lazy" decoding="async" />
+      <button class="hotspot" style="left:7%; top:22%; width:86%; height:16%;" data-modal-title="BATTLE ROYAL" data-modal-body="3本先取で優勝決定。まずは全員で空気を読まずに始めるセクションです。" aria-label="BATTLE ROYALの説明を開く"></button>
+      <button class="hotspot" style="left:7%; top:42%; width:86%; height:18%;" data-modal-title="LEAGUE" data-modal-body="総当たりのリーグ戦。ストック差を得失点として記録し、勝利数が並んだ場合は得失点で順位を決めます。" aria-label="LEAGUEの説明を開く"></button>
+      <button class="hotspot" style="left:7%; top:63%; width:86%; height:19%;" data-modal-title="TEAM FINAL" data-modal-body="TEAM WONDER（石毛・渡辺）vs TEAM REDS（八木・多比良）。最後は友情と責任の押し付け合いです。" aria-label="TEAM FINALの説明を開く"></button>
+      <button class="hotspot" style="left:5%; top:88%; width:90%; height:9%;" data-target="#league" aria-label="リーグ戦の組み合わせ順へ移動"></button>
+    </section>
+
+    <section class="slice" id="league" aria-labelledby="league-title">
+      <h2 class="sr-only" id="league-title">LEAGUE MATCH ORDER リーグ戦の組み合わせ順</h2>
+      <ol class="sr-only">
+        <li>石毛 vs 渡辺</li>
+        <li>八木 vs 多比良</li>
+        <li>石毛 vs 八木</li>
+        <li>渡辺 vs 多比良</li>
+        <li>石毛 vs 多比良</li>
+        <li>渡辺 vs 八木</li>
+      </ol>
+      <img src="assets/03-league-order.png" alt="リーグ戦の組み合わせ順。1石毛対渡辺、2八木対多比良、3石毛対八木、4渡辺対多比良、5石毛対多比良、6渡辺対八木。" loading="lazy" decoding="async" />
+      <button class="hotspot" style="left:25%; top:35%; width:66%; height:38%;" data-modal-title="リーグ戦の組み合わせ" data-modal-body="① 石毛 vs 渡辺、② 八木 vs 多比良、③ 石毛 vs 八木、④ 渡辺 vs 多比良、⑤ 石毛 vs 多比良、⑥ 渡辺 vs 八木。" aria-label="リーグ戦の組み合わせ一覧を開く"></button>
+      <button class="hotspot" style="left:7%; top:74%; width:86%; height:12%;" data-modal-title="ルールノート" data-modal-body="勝ちは勝ち。ストック差は、あとで静かに効いてくる。" aria-label="ルールノートを開く"></button>
+      <button class="hotspot" style="left:5%; top:90%; width:90%; height:8%;" data-target="#players" aria-label="プレイヤー紹介へ移動"></button>
+    </section>
+
+    <section class="slice" id="players" aria-labelledby="players-title">
+      <h2 class="sr-only" id="players-title">PLAYERS 4人の紹介</h2>
+      <p class="sr-only">多比良はロックマン担当。八木はリドリーとむらびと。石毛は全キャラ使い。渡辺は使用キャラ不明。</p>
+      <img src="assets/04-players.png" alt="PLAYERS。多比良 ROCKMAN、八木 RIDLEY & VILLAGER、石毛 ALL-ROUNDER、渡辺 UNKNOWN。" loading="lazy" decoding="async" />
+      <button class="hotspot" style="left:7%; top:19%; width:41%; height:27%;" data-modal-title="多比良 / ROCKMAN" data-modal-body="ロックマン担当。飛び道具で会話し、メタブレで沈黙させる。" aria-label="多比良の紹介を開く"></button>
+      <button class="hotspot" style="left:52%; top:19%; width:41%; height:27%;" data-modal-title="八木 / RIDLEY & VILLAGER" data-modal-body="宇宙の怪物と村の住人を使い分ける、思想の振れ幅担当。" aria-label="八木の紹介を開く"></button>
+      <button class="hotspot" style="left:7%; top:47%; width:41%; height:27%;" data-modal-title="石毛 / ALL-ROUNDER" data-modal-body="全キャラ使い。対策表を開くより、祈った方が早い。" aria-label="石毛の紹介を開く"></button>
+      <button class="hotspot" style="left:52%; top:47%; width:41%; height:27%;" data-modal-title="渡辺 / UNKNOWN" data-modal-body="使用キャラ不明。何も分からないという、最も厄介な事前情報。" aria-label="渡辺の紹介を開く"></button>
+      <button class="hotspot" style="left:5%; top:90%; width:90%; height:8%;" data-target="#match-points" aria-label="見どころとルールへ移動"></button>
+    </section>
+
+    <section class="slice" id="match-points" aria-labelledby="match-points-title">
+      <h2 class="sr-only" id="match-points-title">MATCH POINTS 見どころ</h2>
+      <p class="sr-only">見どころは、多比良のロックマンが相手のジャンプをどこまで窮屈にできるか、八木は破壊するのか生活を始めるのか、石毛の全キャラ使いに対策という概念は成立するのか、渡辺の不明さは実力なのか情報統制なのか。</p>
+      <p class="sr-only">リーグ戦ではストック差を得失点として記録。勝利数が並んだ場合は得失点で順位決定。</p>
+      <img src="assets/05-match-points.png" alt="MATCH POINTS 見どころとRULES。" loading="lazy" decoding="async" />
+      <button class="hotspot" style="left:6%; top:17%; width:88%; height:48%;" data-modal-title="MATCH POINTS" data-modal-body="多比良のロックマン、八木の二面性、石毛の全キャラ対応、渡辺の不明さ。この4点が今日の見どころです。" aria-label="見どころを開く"></button>
+      <button class="hotspot" style="left:7%; top:68%; width:86%; height:18%;" data-modal-title="RULES" data-modal-body="リーグ戦ではストック差を得失点として記録。勝利数が並んだ場合は得失点で順位決定。" aria-label="ルールを開く"></button>
+      <button class="hotspot" style="left:5%; top:90%; width:90%; height:8%;" data-target="#record" aria-label="記録欄へ移動"></button>
+    </section>
+
+    <section class="slice" id="record" aria-labelledby="record-title">
+      <h2 class="sr-only" id="record-title">RECORD 記録欄</h2>
+      <p class="sr-only">バトルロイヤルの1st WIN、2nd WIN、3rd WIN、リーグ結果の勝利数とストック差、ファイナル結果を記録する欄です。</p>
+      <img src="assets/06-record.png" alt="RECORD 記録欄。BATTLE ROYAL、LEAGUE RESULT、FINAL RESULTの入力欄。" loading="lazy" decoding="async" />
+      <button class="hotspot" style="left:7%; top:20%; width:86%; height:24%;" data-modal-title="BATTLE ROYAL 記録欄" data-modal-body="1st WIN、2nd WIN、3rd WINをここに記録する想定です。HTML化後は入力欄に置き換えられます。" aria-label="バトルロイヤル記録欄を開く"></button>
+      <button class="hotspot" style="left:7%; top:48%; width:86%; height:25%;" data-modal-title="LEAGUE RESULT 記録欄" data-modal-body="各プレイヤーの勝利数とストック差を記録する想定です。" aria-label="リーグ結果記録欄を開く"></button>
+      <button class="hotspot" style="left:7%; top:76%; width:86%; height:17%;" data-modal-title="FINAL RESULT 記録欄" data-modal-body="TEAM WONDERとTEAM REDSの結果を記録する想定です。" aria-label="ファイナル結果記録欄を開く"></button>
+    </section>
+
+    <section class="slice" id="awards" aria-labelledby="awards-title">
+      <h2 class="sr-only" id="awards-title">AWARDS 勝手に表彰</h2>
+      <p class="sr-only">表彰項目はBATTLE ROYAL、LEAGUE、TEAM、MVP。クロージングは、勝者はひとり。記憶は四人分。また次の夜に。</p>
+      <img src="assets/07-awards.png" alt="AWARDS 勝手に表彰。BATTLE ROYAL、LEAGUE、TEAM、MVP。CLOSING。" loading="lazy" decoding="async" />
+      <button class="hotspot" style="left:7%; top:20%; width:86%; height:44%;" data-modal-title="AWARDS" data-modal-body="BATTLE ROYAL、LEAGUE、TEAM、MVPを勝手に表彰する想定です。" aria-label="表彰項目を開く"></button>
+      <button class="hotspot" style="left:7%; top:68%; width:86%; height:25%;" data-modal-title="CLOSING" data-modal-body="勝者はひとり。記憶は四人分。また次の夜に。" aria-label="クロージングを開く"></button>
+    </section>
+  </main>
+
+  <nav class="fixed-nav" aria-label="固定ナビゲーション">
+    <button type="button" data-target="#program">PROGRAM</button>
+    <button type="button" data-target="#players">PLAYERS</button>
+    <button type="button" data-target="#record">RECORD</button>
+  </nav>
+
+  <div class="modal-root" id="modal" hidden>
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-body" tabindex="-1">
+      <button type="button" class="modal-close" data-close="true" aria-label="モーダルを閉じる">×</button>
+      <div class="modal-inner">
+        <h2 class="modal-title" id="modal-title">仮モーダル</h2>
+        <p class="modal-body" id="modal-body">リンク先が未確定のため、仮モーダルを表示しています。</p>
+        <div class="modal-actions">
+          <button type="button" data-close="true">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const modal = document.getElementById('modal');
+      const dialog = modal.querySelector('.modal-dialog');
+      const title = document.getElementById('modal-title');
+      const body = document.getElementById('modal-body');
+      let lastFocus = null;
+
+      function scrollToTarget(selector) {
+        const target = document.querySelector(selector);
+        if (!target) return;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      function openModal(modalTitle, modalBody) {
+        lastFocus = document.activeElement;
+        title.textContent = modalTitle || 'リンク先未設定';
+        body.textContent = modalBody || 'リンク先が未確定のため、仮モーダルを表示しています。';
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(() => dialog.focus());
+      }
+
+      function closeModal() {
+        if (modal.hidden) return;
+        modal.hidden = true;
+        document.body.style.overflow = '';
+        if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+      }
+
+      document.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-target], [data-modal-title], [data-close]');
+        if (!button) return;
+
+        if (button.dataset.close) {
+          closeModal();
+          return;
+        }
+
+        if (button.dataset.target) {
+          scrollToTarget(button.dataset.target);
+          return;
+        }
+
+        if (button.dataset.modalTitle) {
+          openModal(button.dataset.modalTitle, button.dataset.modalBody);
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeModal();
+      });
+    })();
+  </script>
+</body>
+</html>

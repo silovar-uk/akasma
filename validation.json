@@ -1,0 +1,176 @@
+{
+  "mobile-390": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "bodyScrollWidth": 390,
+    "hasHorizontalOverflow": false,
+    "shellWidth": 390,
+    "shellLeft": 0,
+    "shellRight": 390,
+    "sections": 7,
+    "buttons": 29,
+    "images": [
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      }
+    ],
+    "modalVisibleOnClick": true,
+    "modalHiddenAfterEsc": true,
+    "heroNavScrolled": true
+  },
+  "mobile-430": {
+    "innerWidth": 430,
+    "scrollWidth": 430,
+    "bodyScrollWidth": 430,
+    "hasHorizontalOverflow": false,
+    "shellWidth": 430,
+    "shellLeft": 0,
+    "shellRight": 430,
+    "sections": 7,
+    "buttons": 29,
+    "images": [
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      }
+    ],
+    "modalVisibleOnClick": true,
+    "modalHiddenAfterEsc": true,
+    "heroNavScrolled": true
+  },
+  "desktop-centered": {
+    "innerWidth": 1280,
+    "scrollWidth": 1280,
+    "bodyScrollWidth": 1280,
+    "hasHorizontalOverflow": false,
+    "shellWidth": 430,
+    "shellLeft": 425,
+    "shellRight": 855,
+    "sections": 7,
+    "buttons": 29,
+    "images": [
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      },
+      {
+        "src": "data:image/png;base64,iVBORw0K",
+        "complete": true,
+        "naturalWidth": 941,
+        "naturalHeight": 1672
+      }
+    ],
+    "modalVisibleOnClick": true,
+    "modalHiddenAfterEsc": true,
+    "heroNavScrolled": true
+  }
+}
